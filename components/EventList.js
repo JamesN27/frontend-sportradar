@@ -1,4 +1,5 @@
 'use client';
+// EventList.js
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import eventData from '../sportData.json';
@@ -16,16 +17,10 @@ function EventList() {
       <ul>
         {events.map((event, index) => (
           <li key={index}>
-            <Link href={`/event/${index}`}>
+            <Link href={`/eventoverview/${index}`}>
               <p>Date: {event.dateVenue}</p>
-            </Link>
-            <Link href={`/event/${index}`}>
               <p>Time: {event.timeVenueUTC}</p>
-            </Link>
-            <Link href={`/event/${index}`}>
               <p>Home Team: {event.homeTeam?.name}</p>
-            </Link>
-            <Link href={`/event/${index}`}>
               <p>Away Team: {event.awayTeam?.name}</p>
             </Link>
             <hr />
