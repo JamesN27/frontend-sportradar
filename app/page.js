@@ -1,34 +1,33 @@
 // pages/MyOverviewPage.js
 'use client';
+// MyOverviewPage.js
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Calendar from '../components/Calendar';
 import EventForm from '../components/EventForm';
-import EventList from '../components/EventList'; // Assuming this is where EventList is located
+import EventList from '../components/EventList';
 
 function MyOverviewPage() {
   const [events, setEvents] = useState([]);
 
-  const addEvent = (newEvent) => {
-    setEvents([...events, newEvent]);
-  };
+  useEffect(() => {
+    const storedEvents = JSON.parse(localStorage.getItem('events')) || [];
+    setEvents(storedEvents);
+  }, []);
 
-  const updateEventList = (newEvent) => {
-    // Implement your update logic here
-    // Make sure to update localStorage and setEvents accordingly
-    const storedEvents = JSON.parse(localStorage.getItem('myEvents')) || [];
-    const updatedEvents = [...storedEvents, newEvent];
-    localStorage.setItem('myEvents', JSON.stringify(updatedEvents));
-    setEvents([...events, newEvent]);
+  const addEvent = (newEvent) => {
+    const updatedEvents = [...events, newEvent];
+    setEvents(updatedEvents);
+    localStorage.setItem('events', JSON.stringify(updatedEvents));
   };
 
   return (
     <div>
       <h1>Event Overview</h1>
       <Link href="/eventoverview">Go to Event Overview</Link>
-      <EventForm addEvent={addEvent} updateEventList={updateEventList} />
+      <EventForm addEvent={addEvent} />
       <Calendar events={events} />
-      <EventList />
+      <EventList events={events} />
     </div>
   );
 }

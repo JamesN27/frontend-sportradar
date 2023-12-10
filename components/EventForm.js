@@ -1,12 +1,14 @@
 // components/EventForm.js
 'use client';
 
+// components/EventForm.js
+'use client';
+
 import React, { useState } from 'react';
 
-function EventForm({ addEvent, updateEventList }) {
+function EventForm({ addEvent }) {
   const [title, setTitle] = useState('');
   const [start, setStart] = useState('');
-  const [end, setEnd] = useState('');
   const [teams, setTeams] = useState('');
   const [sport, setSport] = useState('');
 
@@ -23,12 +25,20 @@ function EventForm({ addEvent, updateEventList }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newEvent = { title, start, end, teams, sport };
+    const date = start.substring(0, 10); // Extracting date from datetime-local format
+    const time = start.substring(11, 16); // Extracting time from datetime-local format
+
+    const newEvent = {
+      dateVenue: date,
+      timeVenueUTC: time,
+      homeTeam: { name: title },
+      awayTeam: { name: teams },
+      sport,
+    };
+
     addEvent(newEvent);
-    updateEventList(newEvent);
     setTitle('');
     setStart('');
-    setEnd('');
     setTeams('');
     setSport('');
   };
