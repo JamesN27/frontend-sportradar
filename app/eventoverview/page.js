@@ -6,7 +6,7 @@ function EventOverview() {
   return (
     <div>
       <h1>Event Overview</h1>
-      <EventList /> {/* Render the EventList component */}
+      <EventList />
     </div>
   );
 }
