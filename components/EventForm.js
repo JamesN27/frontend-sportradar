@@ -1,5 +1,6 @@
 // components/EventForm.js
 'use client';
+
 import React, { useState } from 'react';
 
 function EventForm({ addEvent }) {
@@ -8,6 +9,17 @@ function EventForm({ addEvent }) {
   const [end, setEnd] = useState('');
   const [teams, setTeams] = useState('');
   const [sport, setSport] = useState('');
+
+  const sportsOptions = [
+    'Football',
+    'Basketball',
+    'Baseball',
+    'Volleyball',
+    'American Football',
+    'Icehockey',
+    'Handball',
+    'Tennis',
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,12 +46,18 @@ function EventForm({ addEvent }) {
         value={teams}
         onChange={(e) => setTeams(e.target.value)}
       />
-      <input
-        type="text"
-        placeholder="Sport"
-        value={sport}
-        onChange={(e) => setSport(e.target.value)}
-      />
+
+      <select value={sport} onChange={(e) => setSport(e.target.value)}>
+        <option value="" disabled>
+          Select Sport
+        </option>
+        {sportsOptions.map((sportOption, index) => (
+          <option key={index} value={sportOption}>
+            {sportOption}
+          </option>
+        ))}
+      </select>
+
       <input
         type="datetime-local"
         placeholder="Start Date"
