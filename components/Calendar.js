@@ -1,4 +1,3 @@
-'use client';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import FullCalendar from '@fullcalendar/react';
 // components/Calendar.js
@@ -13,8 +12,6 @@ function Calendar({ events }) {
         initialView="dayGridMonth"
         weekends={false}
         events={events}
-        // Customize event rendering if needed
-        // eventContent={renderEventContent}
       />
     </div>
   );
