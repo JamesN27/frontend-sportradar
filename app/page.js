@@ -1,4 +1,5 @@
-// page.js
+import React from 'react';
+import Calendar from '../components/Calendar'; // Import the Calendar component
 import EventList from '../components/EventList';
 
 function MyOverviewPage() {
@@ -6,6 +7,7 @@ function MyOverviewPage() {
     <div>
       <h1>Event Overview</h1>
       <EventList />
+      <Calendar /> {/* Render the Calendar component */}
     </div>
   );
 }

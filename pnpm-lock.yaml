@@ -1,6 +1,16 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
+  '@fullcalendar/daygrid':
+    specifier: ^6.1.10
+    version: 6.1.10(@fullcalendar/core@6.1.10)
+  '@fullcalendar/react':
+    specifier: ^6.1.10
+    version: 6.1.10(@fullcalendar/core@6.1.10)(react-dom@18.0.0)(react@18.0.0)
   next:
     specifier: 14.0.4
     version: 14.0.4(@babel/core@7.23.5)(react-dom@18.0.0)(react@18.0.0)(sass@1.69.5)
@@ -320,6 +330,32 @@ packages:
     resolution: {integrity: sha512-qQfo2mxH5yVom1kacMtZZJFVdW+E70mqHMJvVg6WTLo+VBuQJ4TojZlfWBjK0ve5BdEeNAVxOsl/nvNMpJOaJA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@fullcalendar/core@6.1.10:
+    resolution: {integrity: sha512-oTXGJSAGpCf1oY+CKp5qYjMHkJCPBkJ3SHitl63n8Q6xKeiwQ4EF6Au451euUovREwJpLmD1AyZrCnWmtB9AVg==}
+    dependencies:
+      preact: 10.12.1
+    dev: false
+
+  /@fullcalendar/daygrid@6.1.10(@fullcalendar/core@6.1.10):
+    resolution: {integrity: sha512-Z4GRm1IyHKgxXFTWGcEI0nTsvYOIkpE0aMt3/o3ER2SZkF+hfwcDFhtj0c9+WhMjXFIWYeoTnA9rUOY7Zl/nxA==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.10
+    dependencies:
+      '@fullcalendar/core': 6.1.10
+    dev: false
+
+  /@fullcalendar/react@6.1.10(@fullcalendar/core@6.1.10)(react-dom@18.0.0)(react@18.0.0):
+    resolution: {integrity: sha512-RVYevo5T4RUZzR8omlbnBwRCqVNJWKryzI0ZrFULyqIYggN6uPmMuB9GvbrTjDfKhsm438KQwwhJerg2lGh3xA==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.10
+      react: ^16.7.0 || ^17 || ^18
+      react-dom: ^16.7.0 || ^17 || ^18
+    dependencies:
+      '@fullcalendar/core': 6.1.10
+      react: 18.0.0
+      react-dom: 18.0.0(react@18.0.0)
+    dev: false
 
   /@humanwhocodes/config-array@0.11.13:
     resolution: {integrity: sha512-JSBDMiDKSzQVngfRjOdFXgFfklaXI4K9nLF49Auh21lmBWRLIK3+xTErTWD4KU54pb6coM6ESE7Awz/FNU3zgQ==}
@@ -3031,6 +3067,7 @@ packages:
 
   /postcss-media-query-parser@0.2.3:
     resolution: {integrity: sha512-3sOlxmbKcSHMjlUXQZKQ06jOswE7oVkXPxmZdoB1r5l0q6gTFTQSHxNxOrCccElbW7dxNytifNEo8qidX2Vsig==}
+    requiresBuild: true
     dev: true
 
   /postcss-resolve-nested-selector@0.1.1:
@@ -3098,6 +3135,10 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: true
+
+  /preact@10.12.1:
+    resolution: {integrity: sha512-l8386ixSsBdbreOAkqtrwqHwdvR35ID8c3rKPa8lCWuO86dBi32QWHV4vfsZK1utLLFMvw+Z5Ad4XLkZzchscg==}
+    dev: false
 
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
