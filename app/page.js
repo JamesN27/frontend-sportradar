@@ -6,7 +6,6 @@ function MyOverviewPage() {
   return (
     <div>
       <h1>Event Overview</h1>
-      <EventList />
       <Calendar /> {/* Render the Calendar component */}
     </div>
   );
