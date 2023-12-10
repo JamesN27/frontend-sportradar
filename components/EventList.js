@@ -1,5 +1,4 @@
 'use client';
-// EventList.js
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import eventData from '../sportData.json';
@@ -8,7 +7,8 @@ function EventList() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    setEvents(eventData.data);
+    const storedEvents = JSON.parse(localStorage.getItem('myEvents')) || [];
+    setEvents([...storedEvents, ...eventData.data]);
   }, []);
 
   return (
