@@ -2,9 +2,14 @@
 import dayGridPlugin from '@fullcalendar/daygrid';
 import FullCalendar from '@fullcalendar/react';
 // components/Calendar.js
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function Calendar({ events }) {
+  useEffect(() => {
+    // Log events for debugging
+    console.log('Events:', events);
+  }, [events]);
+
   return (
     <div>
       <h1>Event Calendar</h1>
@@ -13,8 +18,6 @@ function Calendar({ events }) {
         initialView="dayGridMonth"
         weekends={false}
         events={events}
-        // Customize event rendering if needed
-        // eventContent={renderEventContent}
       />
     </div>
   );
